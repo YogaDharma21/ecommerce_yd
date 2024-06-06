@@ -66,7 +66,6 @@ export default async function Hero() {
             Teens
           </Link>
         </div>
-        v
       </div>
     </section>
   );
