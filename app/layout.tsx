@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import CartProvider from "./components/Provider";
 import ShoppingCartModal from "./components/ShoppingCartModal";
+import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <script src="https://cdn.tailwindcss.com"></script>
       <body className={inter.className}>
+        <Script src="https://cdn.tailwindcss.com"></Script>
         <CartProvider>
           <Navbar />
           <ShoppingCartModal />
