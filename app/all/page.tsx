@@ -1,36 +1,33 @@
 import Link from "next/link";
 import { simplifiedProduct } from "../interface";
 import { client } from "../lib/sanity";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 async function getData() {
-  const query = `*[_type == 'product'][0...4]|order(_createdAt asc) {
-    _id,price,name,"slug":slug.current,
-      "categoryName":category->name,
-      "imageUrl":images[0].asset->url
-  }`;
-  const data = client.fetch(query);
+  const query = `*[_type == "product"] {
+        _id,
+          "imageUrl": images[0].asset->url,
+          price,
+          name,
+          "slug": slug.current,
+          "categoryName": category->name
+      }`;
+  const data = await client.fetch(query);
   return data;
 }
-export default async function Newest() {
+
+export const dynamic = "force-dynamic";
+
+export default async function AllPage() {
   const data: simplifiedProduct[] = await getData();
+
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-4 sm:px-6  lg:max-w-7xl lg:px-8">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-            Our newest products
+            All of our product
           </h2>
-          <Link
-            href={"/all"}
-            className="text-primary flex items-center gap-x-1"
-          >
-            See All
-            <span>
-              <ArrowRight />
-            </span>
-          </Link>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {data.map((product) => (
@@ -42,7 +39,7 @@ export default async function Newest() {
               <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <Image
                   src={product.imageUrl}
-                  alt="Product Image"
+                  alt="Product image"
                   className="w-full h-full object-cover object-center lg:h-full lg:w-full"
                   width={300}
                   height={300}

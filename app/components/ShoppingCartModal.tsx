@@ -25,9 +25,6 @@ export default function ShoppingCartModal() {
     event.preventDefault();
     try {
       const result = await redirectToCheckout();
-      if (result?.error) {
-        console.log("result");
-      }
     } catch (error) {
       throw new Error();
     }
