@@ -1,4 +1,5 @@
 import AddToBag from "@/app/components/AddToBag";
+import CheckoutNow from "@/app/components/CheckoutNow";
 import ImageGallery from "@/app/components/ImageGallery";
 import { fullProduct } from "@/app/interface";
 import { client } from "@/app/lib/sanity";
@@ -14,17 +15,21 @@ async function getData(slug: string) {
           description,
           price,
           "slug":slug.current,
-          "categoryName":category->name
+          "categoryName":category->name,
+          price_id
       }`;
   const data = await client.fetch(query);
   return data;
 }
+export const dynamic = "force-dynamic";
+
 export default async function Page({
   params: { slug },
 }: {
   params: { slug: string };
 }) {
   const data: fullProduct = await getData(slug);
+  console.log(data);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
@@ -70,9 +75,18 @@ export default async function Page({
                 image={data.images[0]}
                 name={data.name}
                 price={data.price}
+                price_id={data.price_id}
                 key={data._id}
               />
-              <Button variant={"secondary"}>Checkout now</Button>
+              <CheckoutNow
+                currency="USD"
+                description={data.description}
+                image={data.images[0]}
+                name={data.name}
+                price={data.price}
+                price_id={data.price_id}
+                key={data._id}
+              />
             </div>
             <p className="mt-12 text-base text-gray-500 tracking-wide">
               {data.description}
