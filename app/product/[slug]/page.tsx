@@ -1,3 +1,4 @@
+import AddToBag from "@/app/components/AddToBag";
 import ImageGallery from "@/app/components/ImageGallery";
 import { fullProduct } from "@/app/interface";
 import { client } from "@/app/lib/sanity";
@@ -24,7 +25,6 @@ export default async function Page({
   params: { slug: string };
 }) {
   const data: fullProduct = await getData(slug);
-  console.log(data);
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
@@ -64,7 +64,14 @@ export default async function Page({
               <span className="text-sm">2-4 Day Shipping</span>
             </div>
             <div className="flex gap-2.5">
-              <Button>Add to bag</Button>
+              <AddToBag
+                currency="USD"
+                description={data.description}
+                image={data.images[0]}
+                name={data.name}
+                price={data.price}
+                key={data._id}
+              />
               <Button variant={"secondary"}>Checkout now</Button>
             </div>
             <p className="mt-12 text-base text-gray-500 tracking-wide">

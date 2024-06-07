@@ -11,7 +11,6 @@ export default function ImageGallery({ images }: iAppProps) {
   const handleSmallImageClick = (image: any) => {
     setBigImage(image);
   };
-  console.log("hello");
   return (
     <div className="grid gap-4 lg:grid-cols-5">
       <div className="order-last flex gap-4 lg:order-none lg:flex-col">
