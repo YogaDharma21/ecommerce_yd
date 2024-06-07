@@ -19,6 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <script src="https://cdn.tailwindcss.com"></script>
       <body className={inter.className}>
         <CartProvider>
           <Navbar />
