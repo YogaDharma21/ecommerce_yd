@@ -1,21 +1,24 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { useShoppingCart } from "use-shopping-cart";
 import { urlFor } from "../lib/sanity";
+
 export interface ProductCart {
   name: string;
   description: string;
   price: number;
   currency: string;
-  image: string;
+  image: any;
   price_id: string;
 }
+
 export default function AddToBag({
-  name,
-  image,
-  price,
   currency,
   description,
+  image,
+  name,
+  price,
   price_id,
 }: ProductCart) {
   const { addItem, handleCartClick } = useShoppingCart();
@@ -33,7 +36,7 @@ export default function AddToBag({
         addItem(product), handleCartClick();
       }}
     >
-      Add to cart
+      Add To Cart
     </Button>
   );
 }
