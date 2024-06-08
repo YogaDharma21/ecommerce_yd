@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
         <Link href={"/"}>
           <h1 className="text-2xl md:text-4xl font-bold">
-            YD<span className="text-primary">Commerce</span>
+            YD<span className="text-[#2563eb]">Commerce</span>
           </h1>
         </Link>
         <nav className="hidden gap-12 lg:flex 2xl:ml-16">
@@ -38,7 +38,7 @@ export default function Navbar() {
             <div key={idx}>
               {pathname === link.href ? (
                 <Link
-                  className="text-lg font-semibold text-primary"
+                  className="text-lg font-semibold text-[#2563eb]"
                   href={link.href}
                 >
                   {link.name}
@@ -46,7 +46,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={link.href}
-                  className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-primary"
+                  className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#2563eb]"
                 >
                   {link.name}
                 </Link>

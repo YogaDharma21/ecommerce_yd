@@ -44,7 +44,7 @@ export default function ShoppingCartModal() {
                 <>
                   {Object.values(cartDetails ?? {}).map((entry) => (
                     <li key={entry.id} className="flex py-6">
-                      <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                      <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-[14px] border border-gray-200">
                         <Image
                           src={entry.image as string}
                           alt="Product image"
@@ -68,7 +68,7 @@ export default function ShoppingCartModal() {
                             <button
                               type="button"
                               onClick={() => removeItem(entry.id)}
-                              className="font-medium text-primary hover:text-primary/80"
+                              className="font-medium text-[#2563eb] hover:text-[#2563eb]/80"
                             >
                               Remove
                             </button>
@@ -99,7 +99,7 @@ export default function ShoppingCartModal() {
                 OR{" "}
                 <button
                   onClick={() => handleCartClick()}
-                  className=" font-medium text-primary hover:text-primary/80"
+                  className=" font-medium text-[#2563eb] hover:text-[#2563eb]/80"
                 >
                   Continue Shopping
                 </button>

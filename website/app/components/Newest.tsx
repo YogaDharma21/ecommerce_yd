@@ -24,7 +24,7 @@ export default async function Newest() {
           </h2>
           <Link
             href={"/all"}
-            className="text-primary flex items-center gap-x-1"
+            className="text-[#2563eb] flex items-center gap-x-1"
           >
             See All
             <span>
@@ -39,7 +39,7 @@ export default async function Newest() {
               key={product._id}
               className="group relative"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+              <div className="aspect-square w-full overflow-hidden rounded-[14px] bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <Image
                   src={product.imageUrl}
                   alt="Product Image"

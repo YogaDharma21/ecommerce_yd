@@ -40,7 +40,7 @@ export default async function CategoryPage({
               key={product._id}
               className="group relative"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
+              <div className="aspect-square w-full overflow-hidden rounded-[14px] bg-gray-200 group-hover:opacity-75 lg:h-80">
                 <Image
                   src={product.imageUrl}
                   alt="Product image"
