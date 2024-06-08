@@ -24,7 +24,7 @@ export default async function Newest() {
           </h2>
           <Link
             href={"/all"}
-            className="text-[#2563eb] flex items-center gap-x-1"
+            className="text-[#2563eb] flex items-center gap-x-1 font-bold"
           >
             See All
             <span>
@@ -50,14 +50,14 @@ export default async function Newest() {
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
-                  <h3 className="text-sm text-gray-700 font-semibold">
+                  <h3 className="text-md text-gray-700 font-bold">
                     {product.name}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-md text-gray-500 font-semibold">
                     {product.categoryName}
                   </p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
+                <p className="text-sm font-bold text-gray-900">
                   ${product.price}
                 </p>
               </div>
